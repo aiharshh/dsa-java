@@ -24,6 +24,12 @@ public class ListClassNode {
         b.next = c; // 10->20->30
         c.next = d; // 10->20->30->40
         d.next = e; // 10->20->30->40->50
-
+// Printing LinkedLists
+        Node temp = a;
+        // Size of Linked List is 5, so loop will iterate till 5 time
+        while(temp!=null){
+            System.out.println(temp.val);
+            temp = temp.next;
+        }
     }
 }
