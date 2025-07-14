@@ -30,6 +30,24 @@ class SLL{
         }
         size++;
     }
+    void insert(int idx, int val){
+        if(idx==0) insertAtHead(val);
+        if(idx==size) insertAtEnd(val);
+        if(idx>size){
+            System.out.println("Index greater than Size of LL");
+//            return;  // if we didn't want else
+        }
+        else{
+            Node temp = new Node(val);
+            Node x = head;
+            for(int i=0;i<idx-1;i++){
+                x = x.next;
+            }
+            temp.next = x.next;
+            x.next = temp;
+            size++;
+        }
+    }
     void display(){
         Node temp = head;
         while(temp!=null){
@@ -54,8 +72,14 @@ public class implementingLL {
 //        System.out.println();
         list.insertAtHead(40);
         list.insertAtHead(50);
-        list.display();
+        list.display(); // 50 40 10 20 30
 //        System.out.println();
         list.size();
+        list.insert(2,100); // 50 40 100 10 20 30
+        list.display();
+        list.insert(4,80);
+        list.display();
+        list.insert(10,63);
+        list.display();
     }
 }
