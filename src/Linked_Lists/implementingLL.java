@@ -31,22 +31,39 @@ class SLL{
         size++;
     }
     void insert(int idx, int val){
-        if(idx==0) insertAtHead(val);
-        if(idx==size) insertAtEnd(val);
+        if(idx==0){
+            insertAtHead(val);
+//            return;
+        }
+        if(idx==size){
+            insertAtEnd(val);
+//            return;
+        }
         if(idx>size){
             System.out.println("Index greater than Size of LL");
-//            return;  // if we didn't want else
+            return;
         }
-        else{
-            Node temp = new Node(val);
-            Node x = head;
-            for(int i=0;i<idx-1;i++){
-                x = x.next;
-            }
-            temp.next = x.next;
-            x.next = temp;
-            size++;
+        Node temp = new Node(val);
+        Node x = head;
+        for(int i=0;i<idx-1;i++){
+            x = x.next;
         }
+        temp.next = x.next;
+        x.next = temp;
+        size++;
+    }
+    int get(int idx) throws Exception{
+        if(idx==size-1) return tail.val;
+        if(idx>=size || idx<0){
+//            System.out.println("Not Possible!");
+//            return -1;
+            throw new Exception("Invalid Index");
+        }
+        Node temp = head;
+        for(int i=0;i<idx;i++){
+            temp = temp.next;
+        }
+        return temp.val;
     }
     void display(){
         Node temp = head;
@@ -61,7 +78,7 @@ class SLL{
     }
 }
 public class implementingLL {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(System.in);
         SLL list = new SLL();
         list.insertAtEnd(10);
@@ -81,5 +98,6 @@ public class implementingLL {
         list.display();
         list.insert(10,63);
         list.display();
+        System.out.println(list.get(4));
     }
 }
