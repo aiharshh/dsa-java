@@ -52,6 +52,9 @@ class SLL{
         x.next = temp;
         size++;
     }
+    void deleteAtHead(int idx){
+
+    }
     int get(int idx) throws Exception{
         if(idx==size-1) return tail.val;
         if(idx>=size || idx<0){
