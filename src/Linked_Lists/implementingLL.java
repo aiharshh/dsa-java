@@ -65,6 +65,15 @@ class SLL{
         }
         return temp.val;
     }
+    void set(int idx, int val){
+        if(idx==size-1) tail.val = val;
+        if(idx<0 || idx>size) System.out.println("Invalid Index");
+        Node temp = head;
+        for(int i=0;i<idx;i++){
+            temp = temp.next;
+        }
+        temp.val = val;
+    }
     void display(){
         Node temp = head;
         while(temp!=null){
@@ -99,5 +108,7 @@ public class implementingLL {
         list.insert(10,63);
         list.display();
         System.out.println(list.get(4));
+        list.set(2, 45);
+        list.display();
     }
 }
