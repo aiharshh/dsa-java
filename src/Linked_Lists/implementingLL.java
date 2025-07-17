@@ -54,6 +54,7 @@ class SLL{
     }
     void deleteAtHead(int idx){
 
+
     }
     int get(int idx) throws Exception{
         if(idx==size-1) return tail.val;
