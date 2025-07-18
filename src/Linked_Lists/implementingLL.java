@@ -52,9 +52,20 @@ class SLL{
         x.next = temp;
         size++;
     }
-    void deleteAtHead(int idx){
-
-
+    void deleteAtHead()throws Exception{
+        if(head==null) throw new Exception("No Head Found");
+        head = head.next;
+        size--;
+    }
+    void delete(int idx)throws Exception{
+        if(head==null) throw new Exception("List is Empty");
+        if(idx<0 || idx>=size) throw new Exception("Invalid Index");
+        Node temp = head;
+        for(int i=0;i<idx-1;i++){
+            temp = temp.next;
+        }
+        temp.next = temp.next.next;
+        size--;
     }
     int get(int idx) throws Exception{
         if(idx==size-1) return tail.val;
@@ -114,5 +125,11 @@ public class implementingLL {
         System.out.println(list.get(4));
         list.set(2, 45);
         list.display();
+        list.deleteAtHead();
+        list.display();
+        list.size();
+        list.delete(3);
+        list.display();
+        list.size();
     }
 }
