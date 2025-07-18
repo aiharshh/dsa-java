@@ -9,7 +9,7 @@ import java.util.Scanner;
 //}
 class SLL{
     private Node head;
-    private Node tail;
+    Node tail;
     private int size = 0;
 
     void insertAtEnd(int val){
@@ -58,12 +58,16 @@ class SLL{
         size--;
     }
     void delete(int idx)throws Exception{
-        if(head==null) throw new Exception("List is Empty");
+        if(idx==0) {
+            deleteAtHead();
+            return;
+        }
         if(idx<0 || idx>=size) throw new Exception("Invalid Index");
         Node temp = head;
         for(int i=0;i<idx-1;i++){
             temp = temp.next;
         }
+        if(temp.next==tail) tail = temp;
         temp.next = temp.next.next;
         size--;
     }
@@ -131,5 +135,8 @@ public class implementingLL {
         list.delete(3);
         list.display();
         list.size();
+        list.delete(4);
+        list.display();
+        System.out.println(list.tail.val);
     }
 }
