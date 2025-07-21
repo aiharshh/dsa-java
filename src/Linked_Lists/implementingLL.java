@@ -8,9 +8,9 @@ import java.util.Scanner;
 //    }
 //}
 class SLL{
-    private Node head;
+    public Node head;
     Node tail;
-    private int size = 0;
+    int size = 0;
 
     void insertAtEnd(int val){
         Node temp = new Node(val);
@@ -140,3 +140,4 @@ public class implementingLL {
         System.out.println(list.tail.val);
     }
 }
+    
