@@ -12,6 +12,7 @@ public class MazePath {
 	public static int maze2(int m, int n) {
 		if(m==1 || n==1) return 1;
 //		if(row==m && col==n) return 1;
+
 //		if(row>m || col>n) return 0;
 		int rightWays = maze2(m, n-1);
 		int downWays = maze2(m-1, n);
