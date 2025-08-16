@@ -15,6 +15,7 @@ public class ReverseEachWordInSentence {
 				j=i;
 			}
 		}
+
 		reverse(sb,i,j-1);
 		System.out.println(sb);
 	}
