@@ -1,31 +1,35 @@
 package Linked_Lists;
+
 // User defined data type
-class dNode{
+class dNode {
     int val;
     dNode next;
     dNode prev;
-    dNode(int val){
+
+    dNode(int val) {
         this.val = val;
     }
 }
+
 // user defined data structure
-class DLL{
+class DLL {
     public dNode head;
     public dNode tail;
     int size = 0;
 
-    void display(){
+    void display() {
         dNode temp = head;
-        while(temp!=null){
+        while (temp != null) {
             System.out.print(temp.val + " ");
             temp = temp.next;
         }
         System.out.println();
     }
-    void insertAtTail(int val){
+
+    void insertAtTail(int val) {
         dNode temp = new dNode(val);
-        if(head==null && tail==null) head = tail = temp;
-        else{
+        if (head == null && tail == null) head = tail = temp;
+        else {
             tail.next = temp;
             temp.prev = tail;
             tail = temp;
@@ -33,10 +37,11 @@ class DLL{
         }
         size++;
     }
-    void insertAtHead(int val){
+
+    void insertAtHead(int val) {
         dNode temp = new dNode(val);
-        if(head==null && tail==null) head = tail = temp;
-        else{
+        if (head == null && tail == null) head = tail = temp;
+        else {
             temp.next = head;
             head.prev = temp;
             head = temp;
@@ -44,50 +49,63 @@ class DLL{
         }
         size++;
     }
-    void insert(int idx, int val){
+
+    void insert(int idx, int val) {
         dNode temp = new dNode(val);
-        if(head==null && tail==null) head = tail = temp;
-        else{
-            dNode x = head;
-            dNode y = head;
-            for(int i=0;i<idx-1;i++){
-                x = x.next;
-            }
-            for(int i=0;i<=idx-1;i++){
-                y = y.next;
-            }
-            x.next = temp;
-            temp.prev = x;
-            y.prev = temp;
-            temp.next = y;
+        if (idx < 0 || idx > size) {
+            System.out.println("Invalid Index");
+            return;
         }
+        if (idx == 0) {
+            insertAtHead(val);
+            return;
+        }
+        if (idx == size) {
+            insertAtTail(val);
+            return;
+        }
+
+        dNode x = head;
+        for (int i = 0; i < idx - 1; i++) {
+            x = x.next;
+        }
+        dNode y = x.next;
+        x.next = temp;
+        temp.prev = x;
+        y.prev = temp;
+        temp.next = y;
+        size++;
     }
 }
+
 public class doublyLinkedLists {
-    public static void print(dNode head){
+    public static void print(dNode head) {
         dNode temp = head;
-        while(temp!=null){
-            System.out.print(temp.val+" ");
+        while (temp != null) {
+            System.out.print(temp.val + " ");
             temp = temp.next;
         }
         System.out.println();
     }
-    public static void printReverse(dNode tail){
+
+    public static void printReverse(dNode tail) {
         dNode temp = tail;
-        while(temp!=null){
-            System.out.print(temp.val+" ");
+        while (temp != null) {
+            System.out.print(temp.val + " ");
             temp = temp.prev;
         }
         System.out.println();
     }
-    public static void display(dNode node){
+
+    public static void display(dNode node) {
         dNode temp = node;
-        while(temp.prev!=null){
+        while (temp.prev != null) {
             temp = temp.prev;
         }
         print(temp);
         System.out.println();
     }
+
     public static void main(String[] args) {
         DLL list = new DLL();
         list.insertAtTail(10);
@@ -100,9 +118,13 @@ public class doublyLinkedLists {
         list.insertAtHead(50);
         list.display();
         System.out.println(list.size);
-        list.insert(2, 60);
+        list.insert(2, 80);
         list.display();
         list.insert(2, 70);
+        list.display();
+        list.insert(0, 90);
+        list.display();
+        list.insert(8, 99);
         list.display();
 //        dNode a = new dNode(10);
 //        dNode b = new dNode(20);
