@@ -25,7 +25,5 @@ public class ReverseEachWordInSentence {
 			 sb.setCharAt(j, temp);
 			 i++; j--;
 		 }
-			System.out.println(sb);
-	} 
-	
+	}
 }
