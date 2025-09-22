@@ -34,6 +34,12 @@ public class mergeSort {
         mergeSort(a);
         mergeSort(b);
         merge(a, b, arr);
+        // We have Space complexity = O(n*logn)
+        // We want to imporve this Space complexity and for that we will delete the
+        // Extra arrays we create after merging the arrays
+        // So to delete the arrays we will do the following
+        // Set both the extra created arrays to null
+        a = null; b = null;
     }
     public static void main(String[] args) {
         int[] arr = {80, 30, 50, 20, 60, 10, 70, 40};
