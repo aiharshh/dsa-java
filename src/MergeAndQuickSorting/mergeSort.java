@@ -1,9 +1,9 @@
 package MergeAndQuickSorting;
-
-public class MergeTwoSortedArrays {
+// Using Recursion
+public class mergeSort {
     public static void print(int[] arr){
         for(int ele : arr){
-            System.out.print(ele+" ");
+            System.out.print(ele + " ");
         }
         System.out.println();
     }
@@ -20,12 +20,25 @@ public class MergeTwoSortedArrays {
         while(j<b.length) c[k++] = b[j++];
         while(i<a.length) c[k++] = a[i++];
     }
+    public static void mergeSort(int[] arr){
+        int n = arr.length;
+        if(n==1) return;
+        int[] a = new int[n/2];
+        int[] b = new int[n - n/2];
+        for(int i=0;i<n/2;i++){
+            a[i] = arr[i];
+        }
+        for(int i=0;i<n-n/2;i++){
+            b[i] = arr[i+n/2];
+        }
+        mergeSort(a);
+        mergeSort(b);
+        merge(a, b, arr);
+    }
     public static void main(String[] args) {
-        int[] a = {10,30,50,60,80};
-        int[] b = {20,40,70,75};
-        int m = a.length , n = b.length;
-        int[] c = new int[m+n];
-        merge(a,b,c);
-        print(c);
+        int[] arr = {80, 30, 50, 20, 60, 10, 70, 40};
+        print(arr);
+        mergeSort(arr);
+        print(arr);
     }
 }
