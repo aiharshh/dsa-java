@@ -47,6 +47,7 @@ public class quickSorting {
     }
     public static void main(String[] args) {
         int[] arr = {4,9,7,1,2,3,6,5,8};
+//        int[] arr = {1,5,2,1,3,8,10,9,3,2};
         int n = arr.length;
         print(arr);
         quickSort(arr, 0, n-1);
