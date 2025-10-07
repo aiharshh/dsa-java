@@ -8,6 +8,7 @@ public class nextGreaterElement {
         int[] arr = {1,3,2,1,8,6,3,4};
         int n = arr.length;
         int[] res = new int[n];
+        // ULTA TAREEKA
         res[n-1] = -1;
         st.push(arr[n-1]);
         for(int i=n-2;i>=0;i--){
