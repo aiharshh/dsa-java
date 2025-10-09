@@ -27,5 +27,6 @@ public class previousGreaterElement {
     public static void main(String[] args) {
         int[] arr = {10, 4, 2, 20, 40, 12, 30};
         System.out.println(preGreaterEle(arr));
+
     }
 }
