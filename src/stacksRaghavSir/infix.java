@@ -29,6 +29,7 @@ public class infix {
             }
             else{
                 if(ch=='+' || ch=='-'){
+                    // Work
                     int v2 = val.pop();
                     int v1 = val.pop();
                     if(op.peek()=='-') val.push(v1-v2);
