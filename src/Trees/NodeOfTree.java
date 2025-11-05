@@ -86,5 +86,6 @@ public class NodeOfTree {
         if(root==null) return 0;
         return 1 + Math.max(levels(root.left), levels(root.right));
     }
+    
 
 }
